@@ -1,18 +1,25 @@
 function addChatWindow() {
     // container div
     const chatContainer = document.createElement('div');
-    chatContainer.classList.add('chat-container')
+    chatContainer.classList.add('chat-container');
 
     // chat window
     const chatWindow = document.createElement('div');
     chatWindow.classList.add('chat-window');
     chatContainer.appendChild(chatWindow);
 
-    // create
-    const heading= document.createElement('h2')
+    // create heading
+    const heading= document.createElement('h2');
     heading.classList.add('chat-window__heading')
-    heading.innerText = 'Chat Window';
-    chatWindow.appendChild(heading)
+    heading.innerHTML = `Chat with Us!`;
+    chatWindow.appendChild(heading);
+
+    // create chat icon
+    const iconSpan = document.createElement('span');
+    iconSpan.classList.add('material-symbols-outlined', 'chat-icon');
+    iconSpan.textContent = 'chat';
+    heading.innerHTML += iconSpan.outerHTML
+    console.log(iconSpan)
 
     // append final box to the body
     const script = document.getElementById('chat-js')
@@ -23,7 +30,6 @@ function addChatWindow() {
 function injectStyles(styleObj) {
     const styleTag = document.createElement('style');
     styleTag.setAttribute('type', 'text/css')
-    // styleObjShortened = styleObj.replace(/\s/g, "")
     styleObjShortened = styleObj
     styleTag.innerText = styleObjShortened
     document.head.appendChild(styleTag);
@@ -59,12 +65,17 @@ let chatWindowStyles = `
         overflow-y: hidden;
     }
     .chat-window__heading {
+        display: flex;
+        align-items: center;
         margin: 0;
         padding: 15px;
         background: #9700da;
         font-size: 30px;
         color: #f7f7f7;
-        
+    }
+    .chat-icon {
+        margin-left: auto;
+        font-size: 30px;
     }
     `
 
