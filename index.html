@@ -9,6 +9,11 @@
 </head>
 <body>
     <h1>Chat Window</h1>
-    <script id="chat-js" src="script.js"></script>
+    <div>Got Question</div>
+
+    <script id="chat-js" type="module">  
+        import chatWindow from '/script.js'
+        let test = new chatWindow().init();
+    </script>
 </body>
 </html>
