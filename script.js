@@ -3,12 +3,41 @@ export default class ChatWindow {
             text={
                 heading: 'Got questions?',
                 conversation: [
-                    {   
-                        id: 1,
-                        question: 'How can we help you?',
-                        answers: ["What do you  offer?", "what do you have?"]
-                    }
-                ]
+                {chat: [
+                    {id: 1,
+                    type: 'start',
+                    text: "Hey there! How can we help you?"},
+                    {id: 2,
+                    type: 'middle',
+                    text: "Anything else?"},
+                    {id: 3,
+                    type: 'middle',
+                    text: "What else can we do for you?"},
+                    {id: 4,
+                    type: 'ending',
+                    text: "Thanks for chatting with us!"},
+
+                ]},
+                {options: [
+                    {id: 1,
+                    question: "Which products do you have",
+                    answer: "You can find electronics and other cool gadgets. Check out our customer's favorite products",
+                    link: "http://localhost:5500/"},
+                    {id: 2,
+                    question: "What's your refund policy?",
+                    answer: "We have a no-hassle 30-day money-back guarantee.",
+                    link: "http://localhost:5500/"},
+                    {id: 3,
+                    question: "Do you sell gift cards",
+                    answer: "Yes, we do! Simply check out our gift cards page.",
+                    link: "http://localhost:5500/"},
+                    {id: 4,
+                    question: "Something else!",
+                    answer: "Then why don't you write us a quick email? We'll get back to you as soon as possible. You can ",
+                    link: "http://localhost:5500/"},
+                ]},
+            ]
+
             }, 
             styles={
                 colors : {
@@ -19,8 +48,9 @@ export default class ChatWindow {
                 },
                 boxShadow: '5px 5px 2px 0 rgba(160,160,160,.5)'
                 }) {
-        this.text = text
-        this.styles = styles
+        this.text = text;
+        this.styles = styles;
+        this.count = 0;
 
         this.chatWindowStyles = `
         @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -32,8 +62,8 @@ export default class ChatWindow {
         .chat-container {
             font-family: 'Raleway';
             position: fixed;
-            bottom: 5px;
-            right: 0px;
+            bottom: 10px;
+            right: 10px;
             width: 100%;
             pointer-events: none;
             z-index: 1000;
@@ -46,7 +76,7 @@ export default class ChatWindow {
             margin-left: auto;
             border-radius: 10px 10px 0 0;
             pointer-events: auto;
-            box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+            box-shadow: 0 10px 15px 0 rgba(0,0,0,.2);
             overflow-y: hidden;
         }
         .chat-window:hover {
@@ -145,6 +175,10 @@ export default class ChatWindow {
         const script = document.getElementById('chat-js')
         script.insertAdjacentHTML('beforebegin', chatContainer.outerHTML)
         console.log(chatContainer)
+    }
+
+    printMessages() {
+        for ()
     }
     
     injectStyles() {
