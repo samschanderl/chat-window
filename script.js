@@ -178,7 +178,12 @@ export default class ChatWindow {
     }
 
     printMessages() {
-        for ()
+        console.log(this.count, this.text.conversation)
+        // problem: show first chat message and three options --object iteration
+        for (this.count; this.count <= this.text.conversation.length; this.count ++) {
+            console.log('iteration :', this.count)
+            console.log(this.text.conversation[this.count])
+        }
     }
     
     injectStyles() {
@@ -214,9 +219,10 @@ export default class ChatWindow {
     // run the methods when calling object: inject styles, create chatWindow
     init() {
         this.injectStyles();
-        this.addChatWindow();
+        //this.addChatWindow();
         this.printVars();
-        this.addEventListeners();
+        //this.addEventListeners();
+        this.printMessages();
     }
 
 };
